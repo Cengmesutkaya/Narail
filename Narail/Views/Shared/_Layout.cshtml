@@ -30,7 +30,7 @@
                         <li><i class="flaticon-telephone"></i>Phone +123-456-7890</li>
                         <li><i class="flaticon-envelope"></i>Yourcompany@gmail.com</li>
                     </ul>
-                    <ul class="social-style-one float_right">
+                    <ul class="social-style-one float_right hidden-xs">
                         <li><a href="#"><i class="fa fa-facebook"></i></a></li>
                         <li><a href="#"><i class="fa fa-twitter"></i></a></li>
                         <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
@@ -95,13 +95,9 @@
                                         </ul>
                                     </li>
 
-                                    <li class="dropdown">
-                                        <a href="#">Blog</a>
-                                        <ul>
-                                            <li><a href="blog-grid.html">News Grid</a></li>
-                                            <li><a href="blog-large.html">News Classic</a></li>
-                                            <li><a href="blog-details.html">News Details</a></li>
-                                        </ul>
+                                    <li >
+                                        <a href="@Url.Action("Index","Blog")">Blog</a>
+                                       
                                     </li>
 
                                 </ul>
@@ -163,7 +159,7 @@
                         <div class="right-column">
                             <div class="right-area">
                                 <div class="link-btn4 float_right">
-                                    <a href="#" class="btn-style-one">İletişim</a>
+                                    <a href="@Url.Action("Index","Contact")" class="btn-style-one">İletişim</a>
                                 </div>
                             </div>
                         </div>
