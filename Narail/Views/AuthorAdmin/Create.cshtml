@@ -16,22 +16,23 @@
                         <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                             <i class="material-icons">more_vert</i>
                         </a>
-                  
+
                     </li>
                 </ul>
             </div>
             <div class="body">
-                <form>
+                @using (Html.BeginForm("Create", "AuthorAdmin", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                {
                     <label for="email_address">Yazar Resmi</label>
                     <div class="form-group">
                         <div class="form-line">
-                            <input type="file" id="File" name="File" accept=".jpg,.JPG,.PNG,.png,.JPEG" class="form-control" >
+                            <input type="file" id="File" name="File" accept=".jpg,.JPG,.PNG,.png,.JPEG" class="form-control">
                         </div>
                     </div>
                     <label for="email_address">Ad Soyad</label>
                     <div class="form-group">
                         <div class="form-line">
-                            @Html.EditorFor(model=>model.NameSurname, new {htmlAttributes = new { @class ="form-control", @maxlength ="50",@required ="reguired" } })
+                            @Html.EditorFor(model => model.NameSurname, new { htmlAttributes = new { @class = "form-control", @maxlength = "50", @required = "reguired" } })
                         </div>
                     </div>
                     <label for="password">Email</label>
@@ -62,10 +63,12 @@
                         @Html.RadioButton("Role", "User", new { @id = "user" })
                         <label for="user" class="m-l-20">User</label>
                     </div>
-
                     <br>
-                    <button type="button" class="btn btn-primary m-t-15 waves-effect">LOGIN</button>
-                </form>
+                    <div align="center">
+                        <input type="submit" class="btn btn-success m-t-15 waves-effect" value="Yazar Kaydet">
+
+                    </div>
+                }
             </div>
         </div>
     </div>

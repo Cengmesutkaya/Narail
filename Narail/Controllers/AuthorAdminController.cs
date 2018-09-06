@@ -1,8 +1,10 @@
 ﻿using Narail.Models;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
+using System.Web.Helpers;
 using System.Web.Mvc;
 
 namespace Narail.Controllers
@@ -16,8 +18,35 @@ namespace Narail.Controllers
         }
 
         public ActionResult Create()
-        {
+        {           
             return View();
+        }
+
+        [HttpPost]
+        public ActionResult Create(Author author, HttpPostedFile File)
+        {
+            var authorExist = db.Author.Any(m => m.Email == author.Email);
+
+            if (authorExist == false)
+            {
+                author.Email = author.Email;
+                author.About = author.About;
+                author.NameSurname = author.NameSurname;
+
+                if (File != null)
+                {
+                    FileInfo fileinfo = new FileInfo(File.FileName);
+                    WebImage img = new WebImage(File.InputStream);
+                    string uzanti = (Guid.NewGuid().ToString() + fileinfo.Extension).ToLower();
+                    img.Resize(225, 180, false, false);
+                    string tamyol = "~/images/users/" + uzanti;
+                    img.Save(Server.MapPath(tamyol));
+                    author.Image = "/images/users/" + uzanti;
+                }
+                db.Author.Add(author);
+                db.SaveChanges();
+            }
+            return RedirectToAction("Index");
         }
 
 
