@@ -3757,6 +3757,7 @@
     <Content Include="Views\BlogAdmin\Index.cshtml" />
     <Content Include="Views\Login\Index.cshtml" />
     <Content Include="Views\AuthorAdmin\Index.cshtml" />
+    <Content Include="Views\AuthorAdmin\Create.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

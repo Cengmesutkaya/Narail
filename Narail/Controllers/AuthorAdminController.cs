@@ -15,6 +15,12 @@ namespace Narail.Controllers
             return View(db.Author.ToList());
         }
 
+        public ActionResult Create()
+        {
+            return View();
+        }
+
+
         public ActionResult Delete(int? Id)
         {
             if (Id == null)
