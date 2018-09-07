@@ -23,15 +23,15 @@ namespace Narail.Controllers
         }
 
         [HttpPost]
-        public ActionResult Create(Author author, HttpPostedFile File)
+        public ActionResult Create(Author author, HttpPostedFileBase File)
         {
             var authorExist = db.Author.Any(m => m.Email == author.Email);
 
             if (authorExist == false)
             {
-                author.Email = author.Email;
-                author.About = author.About;
-                author.NameSurname = author.NameSurname;
+                author.AddedDate = DateTime.Now;
+                author.AddedBy = "Mesut Kaya";
+               
 
                 if (File != null)
                 {
