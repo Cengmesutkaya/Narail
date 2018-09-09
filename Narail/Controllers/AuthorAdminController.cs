@@ -31,8 +31,6 @@ namespace Narail.Controllers
             {
                 author.AddedDate = DateTime.Now;
                 author.AddedBy = "Mesut Kaya";
-               
-
                 if (File != null)
                 {
                     FileInfo fileinfo = new FileInfo(File.FileName);
