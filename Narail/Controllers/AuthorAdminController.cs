@@ -12,6 +12,7 @@ namespace Narail.Controllers
     public class AuthorAdminController : Controller
     {
         NarailDBEntities db = new NarailDBEntities();
+
         public ActionResult Index()
         {
             return View(db.Author.ToList());
@@ -60,7 +61,6 @@ namespace Narail.Controllers
             return RedirectToAction("Index");
         }
 
-
         public ActionResult Details(int? Id)
         {
             if (Id == null || Id==0)
@@ -69,6 +69,45 @@ namespace Narail.Controllers
             }
             Author author = db.Author.Find(Id);
             return PartialView(author);
+        }
+
+        public ActionResult Edit(int? Id)
+        {
+            if (Id == null || Id == 0)
+            {
+                return HttpNotFound();
+            }
+            Author author = db.Author.Find(Id);
+            return View(author);
+        }
+
+        [HttpPost]
+        public ActionResult Edit(Author author, HttpPostedFileBase File)
+        {
+            if (author != null)
+            {
+                db.Entry(author).State = System.Data.Entity.EntityState.Modified;
+                db.Entry(author).Property(m => m.AddedBy).IsModified = false;
+                db.Entry(author).Property(m => m.AddedDate).IsModified = false;
+                if (File != null)
+                {
+                    FileInfo fileinfo = new FileInfo(File.FileName);
+                    WebImage img = new WebImage(File.InputStream);
+                    string uzanti = (Guid.NewGuid().ToString() + fileinfo.Extension).ToLower();
+                    img.Resize(225, 180, false, false);
+                    string tamyol = "~/images/users/" + uzanti;
+                    img.Save(Server.MapPath(tamyol));
+                    author.Image = "/images/users/" + uzanti;
+                }
+                else
+                {
+                    db.Entry(author).Property(m => m.Image).IsModified = false;
+                }
+                author.ModifyBy = "Mesut Kaya";
+                author.ModifyDate = DateTime.Now;
+            }
+            db.SaveChanges();           
+            return RedirectToAction("Index","AuthorAdmin");
         }
 
     }

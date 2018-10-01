@@ -76,7 +76,7 @@
                                     <span class="btn bg-cyan waves-effect" id="detail" data-toggle="tooltip" data-placement="top" title="" data-original-title="Detayı Gör" onclick="createModal('@Url.Action("Details", "AuthorAdmin" , new {id=item.Id })')"><i class="material-icons"> folder</i>
                                     </span>
 
-                                    <a class="btn bg-purple waves-effect" data-toggle="tooltip" data-placement="top" title="" data-original-title="Düzenle" href="@Url.Action("Edit", "Author" , new {id=item.Id })">  <i class="material-icons">mode_edit</i></a>
+                                    <a class="btn bg-purple waves-effect" data-toggle="tooltip" data-placement="top" title="" data-original-title="Düzenle" href="@Url.Action("Edit", "AuthorAdmin" , new {id=item.Id })">  <i class="material-icons">mode_edit</i></a>
 
                                     <a class="btn bg-red waves-effect" data-target="#deleteAuthor" data-toggle="tooltip" data-placement="top" title="" data-original-title="Sil" onclick="JavaSend(@item.Id)">  <i class="material-icons">delete</i></a>
 
