@@ -6,74 +6,40 @@
     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <title>Welcome To | Bootstrap Based Admin Template - Material Design</title>
-    <!-- Favicon-->
     <link rel="icon" href="favicon.ico" type="image/x-icon">
-    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&subset=latin,cyrillic-ext" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" type="text/css">
-    <!-- Bootstrap Core Css -->
-    <link href="~/Content/Admin/plugins/bootstrap/css/bootstrap.css" rel="stylesheet">
-    <!-- Custom Css -->
-    <link href="~/Content/Admin/css/style.css" rel="stylesheet">
-    <link href="~/Content/Admin/css/themes/all-themes.css" rel="stylesheet" />
+    <link href="@Url.Content("~/Content/Admin/plugins/bootstrap/css/bootstrap.css")" rel="stylesheet">
+    <link href="@Url.Content("~/Content/Admin/css/style.css")" rel="stylesheet">
+    <link href="@Url.Content("~/Content/Admin/css/themes/all-themes.css")" rel="stylesheet" />
 </head>
 
 <body class="theme-purple">
-    <!-- Page Loader -->
-  
     @Html.Partial("_TopBar")
-
-    <!-- #Top Bar -->
     <section>
-        <!-- Left Sidebar -->
         @Html.Partial("_LeftsideBar")
 
         @Html.Partial("_RightsideBar")
-
-        <!-- #END# Right Sidebar -->
     </section>
-
     <section class="content">
         <div class="container-fluid">
             @RenderBody()
         </div>
     </section>
 
-    <!-- Jquery Core Js -->
     <script src="@Url.Content("~/Content/Admin/plugins/jquery/jquery.min.js")"></script>
-
-    <!-- Bootstrap Core Js -->
-    <script src="~/Content/Admin/plugins/bootstrap/js/bootstrap.js"></script>
-
-    <!-- Select Plugin Js -->
-    <script src="~/Content/Admin/plugins/bootstrap-select/js/bootstrap-select.js"></script>
-
-    <!-- Slimscroll Plugin Js -->
-    <script src="~/Content/Admin/plugins/jquery-slimscroll/jquery.slimscroll.js"></script>
-
-    <!-- Waves Effect Plugin Js -->
-    <script src="~/Content/Admin/plugins/node-waves/waves.js"></script>
-
-    <!-- Jquery CountTo Plugin Js -->
-    <script src="~/Content/Admin/plugins/jquery-countto/jquery.countTo.js"></script>
-
-    <!-- Morris Plugin Js -->
-    <script src="~/Content/Admin/plugins/raphael/raphael.min.js"></script>
-    <script src="~/Content/Admin/plugins/morrisjs/morris.js"></script>
-
-    <!-- ChartJs -->
-    <script src="~/Content/Admin/plugins/chartjs/Chart.bundle.js"></script>
-
-
-    <!-- Sparkline Chart Plugin Js -->
-    <script src="~/Content/Admin/plugins/jquery-sparkline/jquery.sparkline.js"></script>
-
-    <!-- Custom Js -->
-    <script src="~/Content/Admin/js/admin.js"></script>
-    <script src="~/Content/Admin/js/pages/index.js"></script>
-
-    <!-- Demo Js -->
-    <script src="~/Content/Admin/js/demo.js"></script>
+    <script src="@Url.Content("~/Content/Admin/plugins/bootstrap/js/bootstrap.js")"></script>
+    <script src="@Url.Content("~/Content/Admin/plugins/bootstrap-select/js/bootstrap-select.js")"></script>
+    <script src="@Url.Content("~/Content/Admin/plugins/jquery-slimscroll/jquery.slimscroll.js")"></script>
+    <script src="@Url.Content("~/Content/Admin/plugins/node-waves/waves.js")"></script>
+    <script src="@Url.Content("~/Content/Admin/plugins/jquery-countto/jquery.countTo.js")"></script>
+    <script src="@Url.Content("~/Content/Admin/plugins/raphael/raphael.min.js")"></script>
+    <script src="@Url.Content("~/Content/Admin/plugins/morrisjs/morris.js")"></script>
+    <script src="@Url.Content("~/Content/Admin/plugins/chartjs/Chart.bundle.js")"></script>
+    <script src="@Url.Content("~/Content/Admin/plugins/jquery-sparkline/jquery.sparkline.js")"></script>
+    <script src="@Url.Content("~/Content/Admin/js/admin.js")"></script>
+    <script src="@Url.Content("~/Content/Admin/js/pages/index.js")"></script>
+    <script src="@Url.Content("~/Content/Admin/js/demo.js")"></script>
 </body>
 
 </html>
